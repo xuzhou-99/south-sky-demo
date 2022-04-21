@@ -14,9 +14,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import cn.altaria.demo.login.login.config.LoginFilter;
-import cn.altaria.demo.login.shiro.realm.CustomRealm;
 
+import cn.altaria.demo.login.shiro.realm.CustomRealm;
+import cn.altaria.sky.login.config.LoginFilter;
 
 
 /**

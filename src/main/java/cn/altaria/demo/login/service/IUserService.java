@@ -16,14 +16,6 @@ public interface IUserService {
 
 
     /**
-     * register
-     *
-     * @param userVO {@linkplain UserVO}
-     * @throws RegisterException {@linkplain RegisterException}
-     */
-    void register(UserVO userVO) throws RegisterException;
-
-    /**
      * 获取用户
      *
      * @param id       用户ID

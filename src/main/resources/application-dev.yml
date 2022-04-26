@@ -21,8 +21,8 @@ server:
 
 sso:
   enable: true
-  url: http://172.23.27.231:8081
-#  url: http://172.23.22.58:8081
+#  url: http://172.23.27.231:8081
+  url: http://www.sso.com:8081
 # --------------------------------------------- 配置mybatis ---------------------------------------------------- #
 mybatis:
   mapper-locations: classpath:mapper/*.xml

@@ -75,12 +75,6 @@
             <scope>test</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>cn.altaria</groupId>-->
-<!--            <artifactId>base</artifactId>-->
-<!--            <version>1.0.0</version>-->
-<!--        </dependency>-->
-
         <!--缓存-->
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>

@@ -7,13 +7,6 @@ spring:
     password: 6789@jkl
 
 
-  # --------------------------------------------- Mail配置 ------------------------------------------------------- #
-  mail:
-    port: 587
-    host: smtp.qq.com
-    username: 1064284972@qq,com
-    password: gszlixebwzicbdhh
-
 server:
   port: 8088
   servlet:
@@ -21,8 +14,8 @@ server:
 
 sso:
   enable: true
-#  url: http://172.23.27.231:8081
-  url: http://www.sso.com:8081
+  url: http://172.23.27.231:8081
+#  url: http://www.sso.com:8081
 # --------------------------------------------- 配置mybatis ---------------------------------------------------- #
 mybatis:
   mapper-locations: classpath:mapper/*.xml

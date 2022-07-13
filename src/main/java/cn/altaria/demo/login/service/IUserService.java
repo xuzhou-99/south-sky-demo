@@ -1,9 +1,7 @@
 package cn.altaria.demo.login.service;
 
 
-import cn.altaria.demo.login.exception.RegisterException;
 import cn.altaria.demo.login.pojo.UserPojo;
-import cn.altaria.demo.login.web.vo.UserVO;
 
 /**
  * IUserService
@@ -14,14 +12,6 @@ import cn.altaria.demo.login.web.vo.UserVO;
  */
 public interface IUserService {
 
-
-    /**
-     * register
-     *
-     * @param userVO {@linkplain UserVO}
-     * @throws RegisterException {@linkplain RegisterException}
-     */
-    void register(UserVO userVO) throws RegisterException;
 
     /**
      * 获取用户

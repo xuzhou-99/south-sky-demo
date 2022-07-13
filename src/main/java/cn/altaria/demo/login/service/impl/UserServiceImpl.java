@@ -1,25 +1,15 @@
 package cn.altaria.demo.login.service.impl;
 
-import java.util.Date;
 import java.util.Objects;
 
 import javax.annotation.Resource;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-
-import cn.altaria.demo.login.eventbus.register.UserRegisterEvent;
-import cn.altaria.demo.login.exception.RegisterException;
-import cn.altaria.demo.login.mapper.AccountMapper;
 import cn.altaria.demo.login.mapper.UserMapper;
-import cn.altaria.demo.login.pojo.AccountPojo;
 import cn.altaria.demo.login.pojo.UserPojo;
 import cn.altaria.demo.login.service.IUserService;
-import cn.altaria.demo.login.sid.SIDUtils;
-import cn.altaria.demo.login.web.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -34,63 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserServiceImpl implements IUserService {
 
     @Resource
-    private ApplicationContext applicationContext;
-
-    @Resource
     private UserMapper userMapper;
-
-    @Resource
-    private AccountMapper accountMapper;
-
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public void register(UserVO userVO) throws RegisterException {
-        if (Objects.isNull(userVO)) {
-            throw new RegisterException("用户信息不能为空！");
-        }
-
-        if (StringUtils.isEmpty(userVO.getUsername())) {
-            throw new RegisterException("Username不能为空！");
-        }
-
-        if (StringUtils.isEmpty(userVO.getPassword())) {
-            throw new RegisterException("Password不能为空！");
-        }
-
-        // do something
-        UserPojo userPojo1 = userMapper.selectUserByEmail(userVO.getEmail());
-        if (userPojo1 != null) {
-            throw new RegisterException("E-mail 已经注册过！");
-        }
-
-
-        String id = SIDUtils.getSidStr();
-        UserPojo userPojo = UserPojo.builder()
-                .id(id)
-                .username(userVO.getUsername())
-                .password(userVO.getPassword())
-                .email(userVO.getEmail())
-                .createTime(new Date())
-                .updateTime(new Date())
-                .build();
-
-        String accountId = SIDUtils.getSidStr();
-        AccountPojo accountPojo = AccountPojo.builder()
-                .id(accountId)
-                .uid(id)
-                .username(userVO.getUsername())
-                .password(userVO.getPassword())
-                .email(userVO.getEmail())
-                .createTime(new Date())
-                .updateTime(new Date())
-                .build();
-
-//        userMapper.insertUser(userPojo);
-        accountMapper.insertAccount(accountPojo);
-
-        // publish register event
-        applicationContext.publishEvent(new UserRegisterEvent(this, userVO));
-    }
 
     @Override
     public UserPojo load(String id, String email, String username, String mobile) {

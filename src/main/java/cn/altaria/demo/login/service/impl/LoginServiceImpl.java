@@ -1,10 +1,6 @@
 package cn.altaria.demo.login.service.impl;
 
 
-
-
-import javax.security.auth.login.LoginException;
-
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -13,6 +9,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 
 
+import cn.altaria.demo.login.exception.LoginException;
 import cn.altaria.demo.login.service.ILoginService;
 import lombok.extern.slf4j.Slf4j;
 

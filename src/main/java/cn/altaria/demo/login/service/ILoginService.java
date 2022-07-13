@@ -1,8 +1,7 @@
 package cn.altaria.demo.login.service;
 
-import javax.security.auth.login.LoginException;
 
-
+import cn.altaria.demo.login.exception.LoginException;
 import cn.altaria.demo.login.pojo.UserPojo;
 
 /**
@@ -21,7 +20,7 @@ public interface ILoginService {
      * @param password {@link UserPojo#getPassword()}
      * @throws LoginException {@link LoginException}
      */
-    void login(final String email, final String password) throws javax.security.auth.login.LoginException;
+    void login(final String email, final String password) throws LoginException;
 
     /**
      * 登出

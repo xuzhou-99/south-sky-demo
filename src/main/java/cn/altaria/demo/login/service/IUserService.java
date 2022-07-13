@@ -1,9 +1,7 @@
 package cn.altaria.demo.login.service;
 
 
-import cn.altaria.demo.login.exception.RegisterException;
 import cn.altaria.demo.login.pojo.UserPojo;
-import cn.altaria.demo.login.web.vo.UserVO;
 
 /**
  * IUserService
